@@ -1,0 +1,789 @@
+@import 'normalize.scss';
+@import '../lib/swiper.min.scss';
+@import 'base.scss';
+
+
+//计算尺寸函数
+@function p2r($size){
+    @return ($size/32)*1rem;
+}
+
+//设置函数居中
+@mixin bgc($url,$width) {
+    background: url($url)no-repeat center/100%;
+    position: absolute;
+    left: 50%;
+    margin-left: p2r(-$width/2);
+}
+
+@mixin bg($url){
+    background: url($url)no-repeat center/100%;
+    position: absolute;
+}
+
+@mixin size($width,$height){
+    width:p2r($width);
+    height: p2r($height);
+}
+
+html,body{
+    height:100%;
+}
+
+.loading{
+    z-index: 3;
+    background: #ffece9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .rider{
+        position: absolute;
+        width:(154/32)*1rem;
+        height:(121/32)*1rem;
+        background: url('../image/loading/rider1_.png')no-repeat center/ 100% 100%;
+        top:(233/32)*1rem;
+        left: (108/32)*1rem;
+        }
+    .progress{
+        width: (416/32)*1rem;
+        height: (20/32)*1rem;
+        background: #fc2e4d;
+        border: 2px solid #373839;
+        border-radius: (20/32)*1rem;;
+        position: absolute;
+        left: (108/32)*1rem;
+        top: (360/32)*1rem;
+    }
+    .info{
+        width: (220/32)*1rem;
+        height: (28/32)*1rem;
+        position: absolute;
+        top: (424/32)*1rem;
+        background: url('../image/loading/loading-txt.png')
+        no-repeat center/100%;
+        left: 50%;
+        margin-left: -(220/32)/2*1rem;
+    }
+    .logo{
+        width: (162/32)*1rem;
+        height: (39/32)*1rem;
+        background:url('../image/loading/waimai-logo.png')no-repeat center/100%;
+        position: absolute;
+        bottom:(118/32)*1rem ;
+        left: 50%;
+        margin-left: -(162/32)/2*1rem;
+    }
+    p{
+        position: absolute;
+        bottom:(73/32)*1rem ;
+        font-size: (24/30)*1rem;
+        color: #e0979d;
+        width: 100%;
+        text-align: center;
+    }    
+}
+
+.welcome{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: deepskyblue;
+    .info{
+        position: absolute;
+        top: (42/32)*1rem;
+        left: 50%;
+        margin-left: -(397/32)/2*1rem;
+        width: (397/32)*1rem;
+        height: (240/32)*1rem;
+        background: url('../image/page1/theme-title.png')no-repeat center/100%;
+        .hello{
+            position: absolute;
+            top: (20/32)*1rem;
+            right: (8/32)*1rem;
+            width: (75/32)*1rem;
+            height:(70/32)*1rem ;
+            background:url('../image/page1/hello.png')no-repeat center/100%;
+        }
+    }
+    .music{
+        position: absolute;
+        top: (32/32)*1rem;
+        right: (32/32)*1rem;
+        width: (36/32)*1rem;
+        height: (36/32)*1rem;
+        border-radius: 50%;
+        background: url('../image/pause.png')no-repeat center/100%;
+    }
+    .clouds{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -(640/32)/2*1rem;
+        width: (640/32)*1rem;
+        height: (673/32)*1rem;
+        background: url('../image/page1/clouds.png')no-repeat center/100%;
+    }
+   
+    .grass1{
+        position: absolute;
+        bottom: 0;
+        
+        width: (640/32)*1rem;
+        height: (396/32)*1rem;
+        background: url('../image/page1/grass1.png')no-repeat center/100%;
+    }
+    .grass2{
+        position: absolute;
+        bottom: 0;
+        width: (640/32)*1rem;
+        height: (228/32)*1rem;
+        background: url('../image/page1/grass2.png')no-repeat center/100%;
+    }
+    .tree{
+        position: absolute;
+        bottom: (352/32)*1rem;
+        left: 50%;
+        margin-left: -(559/32)/2*1rem;
+        width: (559/32)*1rem;
+        height: (71/32)*1rem;
+        background: url('../image/page1/trees.png')no-repeat center/100%;
+    }
+    
+    .quan{
+        position: absolute;
+        bottom: (86/32)*1rem;
+        left: 50%;
+        margin-left: -(208/32)/2*1rem;
+        width: (208/32)*1rem;
+        height: (208/32)*1rem;
+        background: url('../image/page1/circle1.png')no-repeat center/100%;
+    }
+    .quan1{
+        position: absolute;
+        bottom: (86/32)*1rem;
+        left: 50%;
+        margin-left: -(208/32)/2*1rem;
+        width: (208/32)*1rem;
+        height: (208/32)*1rem;
+        background: url('../image/page1/circle2.png')no-repeat center/100%;
+    }
+    .waiquan{
+        position: absolute;
+        bottom: (130/32)*1rem;
+        left: 50%;
+        margin-left: -(124/32)/2*1rem;
+        width: (124/32)*1rem;
+        height: (113/32)*1rem;
+      
+        background: url('../image/page1/bear-btn-pre.png')no-repeat center/100%;
+    }
+    .changan{
+        position: absolute;
+        bottom: (38/32)*1rem;
+        width: 100%;
+        height: (32/32)*1rem;
+        text-align: center;
+        color: red;
+        font-size: (18/32)*1rem;
+
+    }
+    .bear{
+         position: absolute;
+         bottom: (346/32)*1rem;
+         left: 50%;
+         margin-left: -(167/32)/2*1rem;
+         width: (167/32)*1rem;
+         height: (279/32)*1rem;
+         background: url('../image/page1/rider2.png')no-repeat center/100%;
+    }
+    .smoke{
+         position: absolute;
+         bottom: (346/32)*1rem;
+         left: 50%;
+         margin-left: -(167/32)/2*1rem;
+         width: (167/32)*1rem;
+         height: (32/32)*1rem;   
+         background: url('../image/page1/jet1.png')no-repeat center/100%;
+    }
+    
+    
+}
+
+.swiper-container{
+   
+    height:100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+   
+}
+.page1{
+    background-color: #BE8651;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .scroll-page1{
+        
+        .bg{
+            @include bgc('../image/page2/bg1.png',576);
+            @include size(576,573);
+            bottom: p2r(252);
+           
+        }
+        .person{
+            z-index: 1;
+            @include bgc('../image/page2/front1.png',439);
+            @include size(439,349);
+            bottom: p2r(290);
+            .files{
+              background-image: url('../image/page2/papers.png');
+              background-repeat: no-repeat;
+              background-position: bottom right;
+              background-size: p2r(115) p2r(114);
+              @include size(85,50);
+              bottom: p2r(104); 
+              left: p2r(27);
+              position: absolute;
+              .paper1{
+                background-image: url('../image/page2/papers.png');
+                background-repeat: no-repeat;
+                background-position: 0 p2r(-32);
+                background-size: p2r(115) p2r(114);
+                @include size(86,26);
+                bottom: p2r(45); 
+                left: p2r(-70);
+                position: absolute;
+              }
+              .paper2{
+                background-image: url('../image/page2/papers.png');
+                background-repeat: no-repeat;
+                background-position: p2r(-45) 0;
+                background-size: p2r(115) p2r(114);
+                @include size(64,20);
+                bottom: p2r(80); 
+                right:0; 
+                position: absolute;
+              }
+            }
+        }
+        .sphere{
+            @include bgc('../image/page2/sphere1.png',640);
+            @include size(640,356);
+            bottom: p2r(0);
+        }
+        .message-container{
+            z-index: 1;
+            @include bgc('../image/page2/txt-bubbl.png',363);
+            @include size(363,119);
+            bottom: p2r(140);
+            .info{
+                @include bgc('../image/page2/txt-work.png',220);
+                @include size(220,30);
+                bottom: p2r(44.5);
+            }
+        }
+    
+    }
+    .scroll-page2{
+        .bg{
+            
+            @include bgc('../image/page2/bg2.png',582);
+            @include size(582,520);
+            bottom: p2r(252);
+        }
+        .person{
+            z-index: 1;
+            @include bgc('../image/page2/relax.png',436);
+            @include size(436,332);
+            bottom: p2r(270);
+            .leg1{
+                @include bg('../image/page2/leg2.png');
+                left:p2r(193);
+                bottom: p2r(120);
+                @include size(85,71)
+            }
+            .leg2{
+                @include bg('../image/page2/leg1.png');
+                left:p2r(195);
+                bottom: p2r(110);
+                @include size(113,24)
+            }
+        }
+      
+        .message-container{
+            z-index: 1;
+            @include bgc('../image/page2/txt-bubbl.png',363);
+            @include size(363,119);
+            bottom: p2r(140);
+            .info{
+                @include bgc('../image/page2/txt-life.png',220);
+                @include size(220,30);
+                bottom: p2r(44.5);
+            }
+        }
+    }
+    .scroll-page3{
+        .bg{
+            @include bgc('../image/page2/bg3.png',561);
+            @include size(561,516);
+            bottom: p2r(270);
+        }
+        .person{
+            z-index: 1;
+            @include bgc('../image/page2/person.png',503);
+            @include size(503,229);
+            bottom: p2r(300);
+            .word1{
+                @include bg('../image/page2/word1.png');
+                bottom:p2r(194);
+                left: p2r(7);
+                @include size(92,93 )
+            }
+            .word2{
+                @include bg('../image/page2/word2.png');
+                bottom:p2r(245);
+                left: p2r(115);
+                @include size(77,70)
+            }
+            .word3{
+                @include bg('../image/page2/word3.png');
+                bottom:p2r(220);
+                right: p2r(130);
+                @include size(115,104 )
+            }
+            .word4{
+                @include bg('../image/page2/word4.png');
+                bottom:p2r(230);
+                right: p2r(12);
+                @include size(79,73 )
+            }
+        }
+        .message-container{
+            z-index: 1;
+            @include bgc('../image/page2/txt-bubbl.png',363);
+            @include size(363,119);
+            bottom: p2r(140);
+            .info{
+                @include bgc('../image/page2/txt-res.png',220);
+                @include size(220,30);
+                bottom: p2r(44.5);
+            }
+        }
+    }
+    .sphere{
+        @include bgc('../image/page2/sphere1.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+    .beer{
+        right: p2r(38);
+        bottom: p2r(0);
+        @include bg('../image/page2/bear1.png');
+        @include size(178,134)
+    }
+}
+.page2{
+    background-color: #EE4143;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .bg{
+        @include bgc('../image/page3/bg4_.png',576);
+        @include size(592,490);
+        bottom: p2r(330);
+    }
+    .person{
+           background-image: url('../image/page3/bear2.png');
+           background-repeat: no-repeat;
+           background-position: p2r(-103) p2r(-96);
+           background-size: p2r(368) p2r(427);
+           @include size(227,336 );
+           bottom: p2r(310);
+           left: 50%;
+           margin-left: p2r(-227/2);
+           position: absolute;
+           .face1{
+            background-image: url('../image/page3/face1.png');
+            background-repeat: no-repeat;
+            background-size: p2r(102) p2r(102);
+            top: 0;
+            left: p2r(-120);
+            position: absolute;
+            @include size(102,102 );
+            
+           }
+           .face2{
+            background-image: url('../image/page3/face2.png');
+            background-repeat: no-repeat;
+            top: p2r(-102);
+            right: p2r(-102/2);
+            position: absolute;
+            background-size: p2r(102) p2r(102);
+            @include size(104,102);
+           }
+           .shou1{
+            @include bg('../image/page3/hand-left_.png');
+            top:p2r(180);
+            left: p2r(30);
+            @include size(74,77)
+           }
+           .shou2{
+            @include bg('../image/page3/hand-right.png');
+            top:p2r(180);
+            right: p2r(30);
+            @include size(74,77)
+           }
+      
+    }
+    .food{
+        z-index: 2;
+        @include bgc('../image/page3/foods.png',354);
+        @include size(354,152); 
+        bottom: p2r(330);
+    }
+    .table{
+        z-index: 1;
+        @include bgc('../image/page3/table.png',514);
+        @include size(514,258); 
+        bottom: p2r(140);
+    }
+    .sphere{
+        @include bgc('../image/page3/sphere2.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+}
+.page3{
+    background-color: #DD8A03;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .bg{
+        @include bgc('../image/page4/bg5.png',592);
+        @include size(592,580);
+        bottom: p2r(300);
+    }
+    .person{
+        z-index: 1;
+        @include bgc('../image/page4/bear3.png',206 );
+        @include size(206,321 );
+        bottom: p2r(195);
+    }
+     .license{
+       @include bg('../image/page4/license.png');
+       @include size(197,140 );
+       left: p2r(40);
+       bottom: p2r(500);
+     }
+     .license1{
+        @include bg('../image/page4/oil.png');
+        @include size(205,107 );
+        left: p2r(225);
+        bottom: p2r(660);
+     }
+     .license2{
+        @include bg('../image/page4/evil2.png');
+        @include size(198,163 );
+        right: p2r(30);
+        bottom: p2r(480);
+     }
+    .sphere{
+        @include bgc('../image/page4/sphere3.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+
+}
+.page4{
+    background-color: #3FA100;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .bg{
+        @include bgc('../image/page5/bg6.png',588);
+        @include size(588,333);
+        bottom: p2r(300);
+    }
+    .person{
+        z-index: 1;
+        @include bg('../image/page5/bear4.png');
+        @include size(309,325 );
+        bottom: p2r(170);
+        left: p2r(200);
+    }
+     .map{
+       @include bg('../image/page5/card1.png');
+       @include size(160,175 );
+       left: p2r(32);
+       bottom: p2r(435);
+     }
+     .menu{
+        @include bg('../image/page5/card2.png');
+        @include size(161,209 );
+        left: p2r(240);
+        bottom: p2r(530);
+     }
+     .buyit{
+        @include bg('../image/page5/card3.png');
+        @include size(167,184 );
+        right: p2r(45);
+        bottom: p2r(420);
+     }
+    .sphere{
+        @include bgc('../image/page5/sphere4.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+
+}
+.page5{
+    background-color: #0098CF;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .bg{
+        @include bgc('../image/page6/bg7.png',594);
+        @include size(594,493);
+        bottom: p2r(300);
+    }
+    .person{
+        z-index: 1;
+        @include bgc('../image/page6/rider2.png',230);
+        @include size(230,390 );
+        bottom: p2r(175);
+        .smoke{
+         @include bg('../image/page6/shadow.png');
+        left: 50%;
+        margin-left: p2r(-114/2);
+         bottom: p2r(10);
+         @include size(114,26 )
+        }
+    }
+    .clouds{
+        @include bgc('../image/page6/weather-cloud.png',432);
+        @include size(432,160 );
+        bottom: p2r(645);
+    }
+    .sphere{
+        @include bgc('../image/page6/sphere5.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+
+}
+.page6{
+    background-color: #B527A0;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .bg{
+        @include bgc('../image/page7/bg8.png',588);
+        @include size(588,333);
+        bottom: p2r(300);
+    }
+    .person{
+        z-index: 1;
+        @include bgc('../image/page7/bear5.png',285);
+        @include size(285,328 );
+        bottom: p2r(200);
+    }
+    .sphere{
+        @include bgc('../image/page7/sphere6.png',640);
+        @include size(640,356);
+        bottom: p2r(0);
+    }
+}
+.page7{
+    background-color: #19072A;
+    .title{
+        color: white;
+        position: absolute;
+        top: p2r(32);
+        left: p2r(32);
+        padding-left: p2r(20);
+        h3{
+            font-size: p2r(64);
+            padding-bottom: p2r(12);
+        }
+        p{
+            font-size: p2r(24);
+            padding-bottom: p2r(8);
+            
+        }
+        .line{
+           height: 100%;
+           width: p2r(5);
+           position: absolute;
+           background-color: white;
+           top: 0;
+           left: 0;
+        }
+    }
+    .streelight{
+        @include bg('../image/page8/streetlight.png');
+        @include size(80,443);
+        bottom: p2r(300);
+        left: p2r(240);
+        .lamplight{
+            @include bg('../image/page8/lamplight.png');
+            @include size(437,427);
+            top: p2r(10);
+            left: p2r(-140);
+
+        }
+    }
+    .moto{
+        @include bg('../image/page8/moto.png');
+        @include size(200,137);
+        bottom: p2r(330);
+        left: p2r(110);
+    }
+    .person{
+        z-index: 1;
+        @include bg('../image/page8/bear6.png');
+        @include size(285,328 );
+        bottom: p2r(280);
+        left: p2r(325)
+    }
+    .share{
+        z-index: 1;
+        @include bgc('../image/page8/share.png',379);
+        @include size(379,113);
+        bottom: p2r(140);
+    }
+    .sphere{
+        @include bgc('../image/page8/sphere7.png',640);
+        @include size(640,384);
+        bottom: p2r(0);
+    }
+}
+
+

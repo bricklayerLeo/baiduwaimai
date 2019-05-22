@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //tap高粱 一般给透明
+    -webkit-tap-highlight-color: transparent;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.f1{
+    float: left;
+}
+.fr{
+    float: left;
+}
+.clearfix::before,
+.clearfix::before{
+    content: '';
+    display: block;
+    clear: both;
+    line-height: 0;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix{
+    //移动端这里可以省略
+    zoom: 1;
+}
