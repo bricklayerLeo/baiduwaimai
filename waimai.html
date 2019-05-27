@@ -18,7 +18,9 @@
 <body>
     <div class="loading">
         <div class="rider"></div>
-        <div class="progress"></div>
+        <div class="progress">
+            <div class="step"></div>
+        </div>
         <div class="info"></div>
         <div class="logo"></div>
         <p>@   2015  Baidu  Waimai  Product</p>
@@ -26,16 +28,22 @@
     <div class="welcome">
         <div class="info"> <div class="hello"></div></div>
        
-        <div class="music"></div>
+       
         <div class="clouds"></div>
         <div class="grass1"></div>
         <div class="grass2"></div>
         <div class="tree"></div>
-        <div class="bear"></div>
+        <div class="bear-box">
+            <div class="bear"></div>
         <div class="smoke"></div>
-        <div class="quan"></div>
-        <div class="quan1"></div>
-        <div class="waiquan"></div>
+        </div>
+        
+        <div class="quanquan">
+            <div class="quan"></div>
+            <div class="quan1"></div>
+            <div class="waiquan"></div>
+        </div>
+       
         <div class="changan">长安启动，观外买之路</div>
     </div>
 
@@ -47,7 +55,7 @@
                     <p>经常会这样...</p>
                     <div class="line"></div>
                 </div>
-                <div class="scroll-page1" style="display: none;">
+                <div class="scroll-page1">
                     <div class="bg"></div>
                    
                     <div class="person">
@@ -61,7 +69,7 @@
                         <div class="info"></div>
                     </div>   
                 </div>
-                <div class="scroll-page2" style="display: none;">
+                <div class="scroll-page2">
                     <div class="bg"></div>
                    
                     <div class="person">
@@ -117,9 +125,22 @@
                 </div>
                 <div class="bg"></div>
                 <div class="person"></div>
-                <div class="license"></div>
+                <div class="sanzhixiong">
+                    <div class="onexiong"></div>
+                    <div class="twoxiong"></div>
+                    <div class="threexiong"></div>
+                </div>
+                <div class="license-box">
+                    <div class="license"></div>
                 <div class="license1"></div>
                 <div class="license2"></div>
+                </div>
+                
+                <div class="tipai">
+                    <div class="card1"></div>
+                    <div class="card2"></div>
+                    <div class="card3"></div>
+                </div>
                 <div class="sphere"></div> 
             </div>
             <div class="swiper-slide page4">
@@ -147,7 +168,16 @@
             <div class="person">
                 <div class="smoke"></div>
             </div>
-            <div class="clouds"></div>
+            <div class="clouds">
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+            </div>
             
             <div class="sphere"></div> 
         </div>
@@ -180,7 +210,8 @@
             </div>
         </div>
     </div>
-
+    <audio loop src="music/hlw.mp3"></audio>
+    <input type="button" class="yinyue">
 </body>
 </html>
 <script type="text/javascript" src="lib/swiper.min.js"></script>
@@ -190,11 +221,80 @@
 <script type="text/javascript" src="lib/fx.js"></script>
 <script type="text/javascript" src="lib/fx_methods.js"></script>
 <script type="text/javascript">
-var swiper = new Swiper('.swiper-container',{direction:'vertical',})
-$('.loading').click(function(){
-    $(this).fadeOut();
+var swiper = new Swiper('.swiper-container',{direction:'vertical',onSlideChangeEnd: 
+function(swiper){
+      $('.swiper-slide').eq(swiper.activeIndex).addClass('animate')
+      .siblings().removeClass('animate'); //切换结束时，告诉我现在是第几个slide
+
+      $('.swiper-slide').eq(2).addClass('swiper-no-swiping');
+
+      if(swiper.previousIndex==2){
+         $('.swiper-slide').eq(2).find('.person').attr('style','')
+         $('.sanzhixiong div').attr('style','')
+         $('.license-box').attr('style','')
+         $('.tipai div').attr('style','')
+      }
+    }
+    })
+
+$(function(){
+    setTimeout(function(){
+      $('.loading').addClass('animate');
+          
+        $('.loading .step').on('animationend',function(){
+            $('.loading').fadeOut(300,function(){
+                $('.welcome').addClass('animate');
+            })
+          })
+    },1000)
+
+    $('.welcome .waiquan').longTap(function(){
+       $('.welcome').fadeOut(500,function(){
+          $('.page1').addClass('animate');
+       })
+    })
+
+
+    $('.swiper-slide').eq(2).click(function(){
+        
+        $('.swiper-slide').eq(2).children('.person').css('animation','none');
+   
+        
+        var index=0;
+        interId = setInterval(function(){
+  
+        $('.sanzhixiong div').css('opacity',0);
+        
+        $('.sanzhixiong div').eq(index).css('opacity',1)
+        $('.license-box').eq(index).css('opacity',0)
+        $('.tipai div').eq(index).css('opacity',1)
+
+        if(index==2){
+            clearInterval(interId)
+            $('.tipai div').animate({
+                transform:'translateY(100%)',
+                opacity:'0'
+            },1000)
+        }
+
+        setTimeout(function(){
+            $('.swiper-slide').eq(2).removeClass('swiper-no-swiping')
+        },1000)
+         index++;
+        },1000)
+    })
+   
 })
-$('.welcome').click(function(){
-    $(this).fadeOut();
+
+var audioDom = document.querySelector('audio');
+
+$('.yinyue').click(function(){
+    if(audioDom.paused==true){
+        audioDom.play();
+        $(this).css('background-image','url(image/play.png)')
+    }else{
+        audioDom.pause();
+        $(this).css('background-image','url(image/pause.png)')
+    }
 })
 </script>

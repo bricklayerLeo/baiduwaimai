@@ -26,6 +26,92 @@
     height: p2r($height);
 }
 
+@keyframes steps{
+
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes riders{
+    10%{
+        transform: translateX(p2r(-26*1)) translateY(p2r(-10));
+    }
+    20%{
+        transform: translateX(p2r(-26*2)) translateY(p2r(10));
+    }
+    30%{
+        transform: translateX(p2r(-26*3)) translateY(p2r(-10));
+    }
+    40%{
+        transform: translateX(p2r(-26*4)) translateY(p2r(10));
+    }
+    50%{
+        transform: translateX(p2r(-26*5)) translateY(p2r(-10));
+    }
+    60%{
+        transform: translateX(p2r(-26*6)) translateY(p2r(10));
+    }
+    70%{
+        transform: translateX(p2r(-26*7)) translateY(p2r(-10));
+    }
+    80%{
+        transform: translateX(p2r(-26*8)) translateY(p2r(10));
+    }
+    90%{
+        transform: translateX(p2r(-26*9)) translateY(p2r(-10));
+    }
+    100%{
+        transform: translateX(p2r(-26*10)) translateY(p2r(10));
+    }
+
+    to{
+        transform: translateX(p2r(-260));
+    }
+}
+
+@keyframes grass11{
+    
+    to{
+        height: p2r(396);
+    }
+}
+
+
+@keyframes treess{
+    from{
+       transform: translateY(-200%);
+
+    }
+    80%{
+        transform: translateY(10%);
+        opacity: 1;
+    }
+    90%{
+        transform: translateY(-10%);
+        opacity: 1;
+    }
+    100%{
+        transform: none;
+        opacity: 1;
+    }
+    
+    
+}
+
+@keyframes grass22{
+    from{
+        opacity: 0;
+        transform: scale(2,1)
+    }
+    to{
+         opacity: 1;
+    }
+}
+
+
+
+
 html,body{
     height:100%;
 }
@@ -43,12 +129,12 @@ html,body{
         height:(121/32)*1rem;
         background: url('../image/loading/rider1_.png')no-repeat center/ 100% 100%;
         top:(233/32)*1rem;
-        left: (108/32)*1rem;
+        right: (108/32)*1rem;
         }
     .progress{
         width: (416/32)*1rem;
         height: (20/32)*1rem;
-        background: #fc2e4d;
+        background: red;
         border: 2px solid #373839;
         border-radius: (20/32)*1rem;;
         position: absolute;
@@ -130,7 +216,6 @@ html,body{
     .grass1{
         position: absolute;
         bottom: 0;
-        
         width: (640/32)*1rem;
         height: (396/32)*1rem;
         background: url('../image/page1/grass1.png')no-repeat center/100%;
@@ -660,8 +745,8 @@ html,body{
         bottom: p2r(175);
         .smoke{
          @include bg('../image/page6/shadow.png');
-        left: 50%;
-        margin-left: p2r(-114/2);
+         left: 50%;
+         margin-left: p2r(-114/2);
          bottom: p2r(10);
          @include size(114,26 )
         }
@@ -786,4 +871,643 @@ html,body{
     }
 }
 
+.loading{
+    .progress{
+        background-color: transparent;
+        .step{
+            width:20%;
+            height:100%;
+            background: #ff2947;
+            right: 0;
+            position: absolute;
+           
+        }
+    }
+}
 
+.loading.animate{
+    .step{
+        animation: steps 1s linear forwards;
+    }
+    .rider{
+        animation: riders 1s linear forwards;
+    }
+    
+}
+@keyframes btnpress{
+    from{
+        
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes rotate{
+    from{}
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes bearr{
+    from{
+        transform: translateY(-50%);
+    
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+    
+}
+@keyframes beartiao{
+    from{
+        transform: translateY(-5%)
+    }
+    to{
+        transform: none;
+    }
+}
+@keyframes smokee{
+    from{
+        transform: scale(0,0)
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes infoo{
+    from{
+        transform: translateY(-50%);
+    
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+@keyframes helloo{
+    from{
+        transform: scale(0,0)
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+@keyframes beardisappear{
+    from{}
+    to{
+        transform: translateY(200%) scale(1.5,1.5);
+
+        opacity: 0;
+    }
+}
+
+.welcome{
+    .grass1{
+        height:p2r(198);
+    }
+    .grass2{
+        opacity: 0;
+    }
+    .tree{
+     opacity: 0;
+    }
+    .quanquan{
+        opacity: 0;
+        transform: scale(0,0);
+    }
+    .bear-box{
+        opacity: 0;
+    }
+    .smoke{
+        opacity: 0;
+    }
+    .info{
+        opacity: 0; 
+        
+    }
+    .hello{
+        opacity:0;
+    }
+    
+}
+.welcome.animate{
+    .grass1{
+    animation: grass11 .5s  forwards;
+    }
+    .tree{
+        animation: treess .5s  forwards;
+    }
+    .grass2{
+        animation: grass22 .5s .5s forwards;
+    }
+    .quanquan{
+        animation: btnpress .5s .5s forwards;
+    }
+    .quan1{
+        animation: rotate .5s linear infinite;
+    }
+    .bear-box{
+        animation: bearr .5s 1s forwards;
+    }
+    .bear{
+        animation: beartiao .5s infinite;
+    }
+    .smoke{
+        animation: smokee .5s infinite;
+    }
+    .info{
+        animation: infoo 1s forwards;
+    }
+    .hello{
+        animation: helloo 1s 1s forwards;
+    }
+}
+
+@keyframes titlee{
+   from{
+       transform: translateX(100%);
+
+   }
+   to{
+       transform: none;
+       opacity: 1;
+   }
+}
+@keyframes linee{
+    from{}
+    to{
+        height: 100%;
+    }
+}
+.swiper-slide {
+    .title{
+        h3{
+            opacity: 0;
+        }
+        p{
+            opacity: 0;
+        }
+        .line{
+            
+            height: 0%;
+        }
+    }
+    
+}
+.swiper-slide.animate{
+    .title{
+        h3{
+            animation: titlee .5s forwards;
+        }
+        p{
+            animation: titlee .5s forwards;
+        }
+        .line{
+            animation: linee .5s forwards;
+        }
+    }
+}
+
+@keyframes rotateInOut{
+    0%{
+        transform: rotateZ(90deg);
+    }
+    25%{
+        transform: rotateZ(-5deg);opacity: 1;
+    }
+    30%{transform: rotateZ(0);opacity: 1;}
+    65%{transform: rotateZ(0);opacity: 1;}
+    70%{transform: rotateZ(5deg);opacity: 1;}
+    100%{transform: rotateZ(-90deg);opacity: 0;}
+}
+
+@keyframes rotatenot{
+    
+        0%{
+            transform: rotateZ(90deg);
+        }
+        95%{
+            transform: rotateZ(-5deg);opacity: 1;
+        }
+        100%{transform: rotateZ(0);opacity: 1;}
+        
+    
+}
+@keyframes rundownleftright{
+    25%{
+        transform: translateX(5%)  translateY(0);
+    }
+    50%{
+        transform: translateX(-5%)  translateY(5%);
+    }
+    75%{
+        transform: translateX(0)  translateY(-5%);
+    }
+    100%{
+        transform: translateX(0)  translateY(0);
+    }
+}
+@keyframes leftright{
+    25%{
+        transform: translateX(50%)
+    }
+    60%{
+        transform: translateX(-50%)
+    }
+    100%{
+        transform: none;
+    }
+}
+
+.page1{
+    .scroll-page1{
+        .bg{
+            opacity: 0;
+            transform-origin: 50% 200%;
+        }
+        .person{
+            opacity: 0;
+            transform-origin: 50% 200%;
+        }
+        .message-container{
+            opacity: 0;
+            transform-origin: right bottom;
+        }
+    }
+    .scroll-page2{
+        .bg{
+            opacity: 0;
+            transform-origin: 50% 200%;
+        }
+        .person{
+            opacity: 0;
+            transform-origin: 50% 200%;
+        }
+        .message-container{
+            opacity: 0;
+            transform-origin: right bottom;
+        }
+    }
+    .scroll-page3{
+        .bg{
+            opacity: 0;
+            transform-origin: 50% 200%;
+        }
+        .person{
+            opacity: 0;
+            transform-origin: 50% 200%;
+            
+        }
+        .message-container{
+            opacity: 0;
+            transform-origin: right bottom;
+        }
+    }
+}
+.page1.animate{
+    .scroll-page1{
+    .bg{
+       animation: rotateInOut 1.5s forwards;
+    }
+    .person{
+        animation: rotateInOut 1.5s .2s forwards;
+        .paper1{
+            animation: leftright .5s infinite;
+        }
+        .paper2{
+            animation: leftright .5s infinite;
+        }
+    }
+    .message-container{
+        animation: rotateInOut 1s .5s forwards;
+    }
+}
+.scroll-page2{
+    .bg{
+       animation: rotateInOut 1.5s 1.7s forwards;
+    }
+    .person{
+        animation: rotateInOut 1.5s 1.9s forwards;
+    }
+    .message-container{
+        animation: rotateInOut 1s 2.2s forwards;
+    }
+}
+.scroll-page3{
+    .bg{
+       animation: rotatenot .5s 3.4s forwards;
+    }
+    .person{
+        animation: rotatenot .5s 3.6s forwards;
+    }
+    .message-container{
+        animation: rotatenot .5s 3.4s forwards;
+    
+    }
+    .word1{ animation:  rundownleftright 1s infinite;}
+    .word2{animation:  rundownleftright .5s infinite;}
+    .word3{animation:  rundownleftright 1.2s infinite;}
+    .word4{animation:  rundownleftright 2s infinite;}
+}
+}
+
+@keyframes tablee{
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+@keyframes personn{
+    from{transform: translateY(100%);}
+    to{transform: none;
+        opacity: 1;}
+}
+@keyframes foodd{
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+@keyframes shouu{
+    10%{transform:translateX(-5%) translateY(5%)}
+    25%{transform:translateX(5%) translateY(-5%)}
+    60%{transform:translateX(-5%) translateY(5%)}
+    80%{transform:translateX(5%) translateY(-5%)}
+    100%{transform:translateX(-5%) translateY(5%)}
+    
+}
+@keyframes facee{
+    from{transform: scale(0,0)}
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.page2{
+    .bg{transform-origin: 50% 200%;opacity: 0;}
+    .person{
+        opacity: 0;
+        .face1{opacity: 0;}
+        .face2{opacity: 0;}
+
+    }
+    .food{
+        opacity: 0;
+    }
+    .table{
+        opacity: 0;
+    }
+}
+
+.page2.animate{
+    
+    .person{
+        animation: personn 1s .5s forwards;
+        .shou1{animation: shouu 1s infinite;}
+        .shou2{animation: shouu 1s infinite;}
+        .face1{animation: facee 1s 2s forwards;}
+        .face2{animation: facee 1s 2s forwards;}
+    }
+    .food{
+        animation: foodd 1s 1s forwards;
+    }
+    .table{
+        animation: tablee 1s forwards;
+    }
+    .bg{
+        animation: rotatenot 1s forwards;
+    }
+}
+
+.page3{
+    .bg{opacity: 0;transform-origin: 50% 200%;}
+    .person{opacity: 0;}
+    .license{opacity: 0;}
+    .license1{opacity: 0;}
+    .license2{opacity: 0;}
+}
+
+.page3.animate{
+    .bg{animation:  rotatenot 1s forwards;}
+    .person{animation: personn 1s .5s forwards;}
+    .license{animation: personn 1s .5s forwards,rundownleftright 1s infinite;}
+    .license1{animation: personn 1s .5s forwards,rundownleftright 1s infinite;}
+    .license2{animation: personn 1s .5s forwards,rundownleftright 1s infinite;}
+}
+.page3{
+    .sanzhixiong{
+      .onexiong{
+        z-index: 1;
+        @include bgc('../image/page4/bear3-1-1.png',251 );
+        @include size(251,335 );
+        bottom: p2r(195);
+        opacity: 0;
+    }
+      .twoxiong{
+        z-index: 1;
+        @include bgc('../image/page4/bear3-2-1.png',215 );
+        @include size(215,313 );
+        bottom: p2r(195);
+        opacity: 0;
+      }
+      .threexiong{
+        z-index: 1;
+        @include bgc('../image/page4/bear3-3-1.png',290 );
+        @include size(290,321 );
+        bottom: p2r(195);
+        opacity: 0;
+      }
+    }
+    .tipai{
+        .card1{
+            @include bg('../image/page4/license1.png');
+            @include size(228,151 );
+            left: p2r(40);
+            bottom: p2r(500);
+            opacity: 0;
+        }
+        .card2{
+            @include bg('../image/page4/oil1.png');
+            @include size(231,156 );
+            left: p2r(225);
+            bottom: p2r(660);
+            opacity: 0;
+        }
+        .card3{
+            @include bg('../image/page4/evil21.png');
+            @include size(211,173 );
+            right: p2r(30);
+            bottom: p2r(480);
+            opacity: 0;
+        }
+    }
+}
+
+.page4{
+    .bg{
+       opacity: 0;
+       transform-origin: 50% 200%;
+    }
+    .person{
+        opacity: 0;
+    }
+    .map{
+        opacity: 0;
+    }
+    .menu{
+        opacity: 0;
+    }
+    .buyit{
+        opacity: 0;
+    }
+}
+.page4.animate{
+    .bg{
+        animation:  rotatenot 1s forwards;
+     }
+     .person{
+        animation: tablee 1s forwards;
+     }
+     .map{
+        animation: facee 1s  forwards;
+     }
+     .menu{
+        animation: facee 1s  forwards;
+     }
+     .buyit{
+        animation: facee 1s  forwards;
+     }
+}
+@keyframes UPdownleftright{
+    25%{
+        transform: translateX(2%)  translateY(0);
+        opacity: 1;
+    }
+    50%{
+        transform: translateX(-2%)  translateY(2%);
+        opacity: 1;
+    }
+    75%{
+        transform: translateX(0)  translateY(-2%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(0)  translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes snownright{
+    10%{opacity: 1;}
+    100%{
+        opacity: 1;
+        transform: translateX(400%) translateY(1000%);
+    }
+}
+@keyframes snowleft{
+    10%{opacity: 1;}
+    100%{
+        opacity: 1;
+        transform: translateX(-200%) translateY(1000%);
+    }
+}
+.page5{
+    .bg{opacity: 0; transform-origin: 50% 200%;}
+    .person{
+        opacity: 0;
+        .smoke{
+            opacity: 0;
+        }
+    }
+    .clouds{
+        opacity: 0;
+        .snow{
+            @include bg('../image/page6/snow-piece.png' );
+            @include size(32, 32);
+            bottom: 0;
+            opacity: 0;
+        }
+        .snow:nth-child(2){
+            left: p2r(32);
+        }
+        .snow:nth-child(3){
+            left: p2r(32*2);
+        }
+        .snow:nth-child(4){
+            left: p2r(32*3);
+        }
+        .snow:nth-child(5){
+            left: p2r(32*4);
+        }
+        .snow:nth-child(6){
+            left: p2r(32*5);
+        }
+        .snow:nth-child(7){
+            left: p2r(32*6);
+        }
+        .snow:nth-child(8){
+            left: p2r(32*7);
+        }
+        
+    }
+}
+.page5.animate{
+    .bg{
+        animation:  rotatenot 1s forwards;
+    }
+    .person{
+        animation: tablee .5s forwards,beartiao .5s .5s infinite;
+        .smoke{
+            animation: smokee .5s infinite;
+        }
+    }
+    .clouds{
+        animation: facee 1s  forwards, UPdownleftright 1s 1s infinite;
+        .snow{
+            animation: snownright .3s 1s infinite;
+        }
+        .snow:nth-child(2){
+            animation:  snowleft .5s 1s infinite;
+        }
+        .snow:nth-child(3){
+            animation: snownright .8s 1s infinite;
+        }
+        .snow:nth-child(4){
+            animation:  snowleft .6s 1s infinite;
+        }
+        .snow:nth-child(5){
+            animation: snownright .4s 1s infinite;
+        }
+        .snow:nth-child(6){
+            animation:  snowleft .3s 1s infinite;
+        }
+        .snow:nth-child(7){
+            animation: snownright .6s 1s infinite;
+        }
+        .snow:nth-child(8){
+            animation:  snowleft .7s 1s infinite;
+        }
+        
+    }
+}
+.yinyue{
+    position: absolute;
+    top: (32/32)*1rem;
+    right: (32/32)*1rem ;
+    @include size(36,36);
+    background: url('../image/pause.png')no-repeat center/100%;
+    z-index: 998;
+}
